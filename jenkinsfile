@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage("Init"){
+            steps {
+                echo "Hi, this is Amshul from Levelup360"
+                echo "We are Starting the Testing"
+            }
+        }
+
+        stage("Build"){
+            steps {
+                echo "Building Simple Maven Project"
+            }
+        }
+        stage("Deploy"){
+            steps {
+                echo "Deploying in Stagging Area"
+            }
+        }
+    }
+}
