@@ -1,24 +1,19 @@
-pipeline {
+pipeline{
     agent any 
     stages{
-        stage("Build Application"){
-            steps{
+        stage('Build Application'){
+            steps {
                 sh 'mvn -f java-tomcat-sample/pom.xml clean package'
             }
-
-            post{
+            post {
                 success{
-                    echo "Now Archiving the artifacts..."
-                    archiveArtifacts artifacts:"**/*.war"
+                    echo "Now Archieving  the artifacts..."
+                    archiveArtifacts artifact:'**/*.war'
                 }
             }
-
-        stage("Deploy  in stagging Enviroment"){
-                build job: "Deploy_Application_Stagging_ENV"
-            }
+        stage('Deeploy in Stagging Environment'){
+            build job:'Deploy_Application_Stagging_ENV'
+        }
         }
     }
 }
-
-
-// dasda
